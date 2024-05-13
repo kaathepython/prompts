@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: CronJob
+metadata:
+  name: ok-cronjob
+spec:
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: ok-cronjob-container
+            image:  europe-west3-docker.pkg.dev/k8s-k3s-421323/k8s-k3s/demo:v1.0.0
+          restartPolicy: OnFailure

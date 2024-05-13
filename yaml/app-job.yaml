@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Job
+metadata:
+  name: ok-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: ok-job-container
+        image: europe-west3-docker.pkg.dev/k8s-k3s-421323/k8s-k3s/demo:v1.0.0
+      restartPolicy: Never

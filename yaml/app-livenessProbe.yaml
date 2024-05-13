@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ok-app
+spec:
+  containers:
+    - image: europe-west3-docker.pkg.dev/k8s-k3s-421323/k8s-k3s/demo:v1.0.0
+      name: ok-app-container
+      livenessProbe:
+          httpGet:
+            path: /
+            port: 8000
+          initialDelaySeconds: 15
+          periodSeconds: 10
+          failureThreshold: 2
+      ports:
+        - containerPort: 8080
+          name: http
